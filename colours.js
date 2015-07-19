@@ -1726,6 +1726,11 @@ var compareColour = function(colour1, colour2){
 
 var getName = function(colourHex)
 {   
+    var isColourHex = /(^[0-9A-F]{6}$)|(^[0-9A-F]{3}$)/i.test(colourHex);
+    if(!isColourHex){
+        return {hex:"000000", name:"Invalid Colour"};
+    }
+    
     var minimumIndex = 0;
     var minimumValue = 255 + 255 + 255;
     
