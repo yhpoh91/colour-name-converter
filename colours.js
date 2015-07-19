@@ -1711,9 +1711,16 @@ var oldColourList = [
 ];
 
 var compareColour = function(colour1, colour2){
-    var red1 = parseInt("0x" + colour1.substring(0, 2));
-    var green1 = parseInt("0x" + colour1.substring(2, 4));
-    var blue1 = parseInt("0x" + colour1.substring(4, 6));
+    if(colour1.length == 6){
+        var red1 = parseInt("0x" + colour1.substring(0, 2));
+        var green1 = parseInt("0x" + colour1.substring(2, 4));
+        var blue1 = parseInt("0x" + colour1.substring(4, 6));
+    }
+    else{
+        var red1 = parseInt("0x" + colour1.substring(0, 1) + colour1.substring(0, 1));
+        var green1 = parseInt("0x" + colour1.substring(1, 2) + colour1.substring(1, 2));
+        var blue1 = parseInt("0x" + colour1.substring(2, 3) + colour1.substring(2, 3));
+    }
     
     var red2 = parseInt("0x" + colour2.substring(0, 2));
     var green2 = parseInt("0x" + colour2.substring(2, 4));
