@@ -1,25 +1,18 @@
-Get Colour Name from Hex Value for ExpressJS framework.
+# Get Colour Name from Hex Value for ExpressJS framework.
 -------------------------------------------------------
 
-\n1) Put file in /utils directory\n2) Add the following code:
+1. Put file in /utils directory
+2. Add the following code:
 
------------------------------------------
+>var colours = require('../utils/colours');
+>colour = colours.getName("30D5D0");
 
-\nvar colours = require('../utils/colours');
-\ncolour = colours.getName("30D5D0");
+3. Get closest colour in the following format:
 
------------------------------------------
+>{
+>	"hex": String,
+>	"name": String
+>}
 
-\n3) Get closest colour in the following format:
-
------------------------------------------
-{
-	\n"hex": String,
-	\n"name": String
-\n}
------------------------------------------
-
-\nhex 	:	hex value of the closest colour
-\nname 	: 	name of the closest colour
-
------------------------------------------
+- hex 	:	hex value of the closest colour
+- name 	: 	name of the closest colour
