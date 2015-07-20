@@ -1735,21 +1735,30 @@ var getName = function(colourHex)
 {   
     var isColourHex = /(^[0-9A-F]{6}$)|(^[0-9A-F]{3}$)/i.test(colourHex);
     if(!isColourHex){
-        return {hex:"000000", name:"Invalid Colour"};
+        return [];
     }
     
-    var minimumIndex = 0;
+    var minimumIndex = [];
     var minimumValue = 255 + 255 + 255;
     
     for(var i = 0; i < colours.length; i++){
         distance = compareColour(colourHex, colours[i].hex);
         if(distance < minimumValue){
+            minimumIndex = [];
             minimumValue = distance;
-            minimumIndex = i;
+            minimumIndex.push(i);
+        }
+        else if(distance == minimumValue){
+            minimumIndex.push(i);
         }
     }
+    
+    var closestColours = [];
+    for(var i = 0; i < minimumIndex.length; i++){
+        closestColours.push(colours[minimumIndex[i]]);
+    }
 
-    return colours[minimumIndex];
+    return closestColours;
 }
 
 module.exports.getName = getName;
